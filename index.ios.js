@@ -17,6 +17,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import {Navigator} from 'react-native-deprecated-custom-components';
 import Boy from './Boy'
 import ListViewTest from './ListViewTest'
+import FetchTest from './FetchTest'
 
 export default class imooc_gp extends Component {
   constructor(props) {
@@ -79,7 +80,8 @@ export default class imooc_gp extends Component {
                   {/*return <Component navigator={navigator} {...route.params}/>*/}
               {/*}}*/}
           {/*></Navigator>*/}
-          <ListViewTest/>
+          {/*<ListViewTest/>*/}
+          <FetchTest/>
       </View>
     );
   }
