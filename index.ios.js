@@ -10,17 +10,20 @@ import {
   StyleSheet,
   Image,
   Text,
-  View
+  View,
+    ListView,
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import {Navigator} from 'react-native-deprecated-custom-components';
 import Boy from './Boy'
+import ListViewTest from './ListViewTest'
 
 export default class imooc_gp extends Component {
   constructor(props) {
     super(props);
+    // const ds = new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2});
     this.state={
-      selectedTab:'tb_popular',
+        selectedTab:'tb_popular',
     }
   }
 
@@ -67,15 +70,16 @@ export default class imooc_gp extends Component {
                 <View style={styles.page2}></View>
             </TabNavigator.Item>
         </TabNavigator> */}
-          <Navigator
-              initialRoute={{
-                  component:Boy
-              }}
-              renderScene={(route, navigator)=>{
-                  let Component=route.component;
-                  return <Component navigator={navigator} {...route.params}/>
-              }}
-          ></Navigator>
+          {/*<Navigator*/}
+              {/*initialRoute={{*/}
+                  {/*component:Boy*/}
+              {/*}}*/}
+              {/*renderScene={(route, navigator)=>{*/}
+                  {/*let Component=route.component;*/}
+                  {/*return <Component navigator={navigator} {...route.params}/>*/}
+              {/*}}*/}
+          {/*></Navigator>*/}
+          <ListViewTest/>
       </View>
     );
   }
