@@ -21,9 +21,9 @@ import ListViewTest from './ListViewTest'
 export default class imooc_gp extends Component {
   constructor(props) {
     super(props);
-    // const   ds=
+    // const ds = new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2});
     this.state={
-      selectedTab:'tb_popular',
+        selectedTab:'tb_popular',
     }
   }
 
