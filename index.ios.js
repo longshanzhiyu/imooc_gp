@@ -19,6 +19,8 @@ import Boy from './Boy'
 import ListViewTest from './ListViewTest'
 import FetchTest from './FetchTest'
 
+import setup from './js/pages/setup'
+
 export default class imooc_gp extends Component {
   constructor(props) {
     super(props);
@@ -106,4 +108,4 @@ const styles = StyleSheet.create({
     }
 });
 
-AppRegistry.registerComponent('imooc_gp', () => imooc_gp);
+AppRegistry.registerComponent('imooc_gp', () => setup);

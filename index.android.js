@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import setup from './js/pages/setup';
 
 export default class imooc_gp extends Component {
   render() {
@@ -50,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('imooc_gp', () => imooc_gp);
+AppRegistry.registerComponent('imooc_gp', () => setup);
