@@ -9,7 +9,7 @@ import {
     DeviceEventEmitter,
 } from 'react-native';
 import NavigationBar from '../common/NavigationBar';
-import DataRepository from '../expand/dao/DataRepository';
+import DataRepository,{FlAG_STORAGE} from '../expand/dao/DataRepository';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import RepositoryCell from '../common/RepositoryCell';
 import LanguageDao,{FLAG_LANGUAGE} from '../expand/dao/LanguageDao';
@@ -81,7 +81,7 @@ export default class PopularPage extends Component{
 class PopularTab extends Component{
     constructor(props){
         super(props);
-        this.dataRespository = new DataRepository();
+        this.dataRespository = new DataRepository(FlAG_STORAGE.flag_popular);
         this.state = {
             result:'',
             dataSource: new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2}),
