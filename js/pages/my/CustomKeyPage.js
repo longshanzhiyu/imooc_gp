@@ -14,7 +14,6 @@ import ViewUtils from '../../util/ViewUtils';
 import LanguageDao, {FLAG_LANGUAGE} from "../../expand/dao/LanguageDao";
 import CheckBox from 'react-native-check-box';
 import ArrayUtils from '../../util/ArrayUtils';
-// import AsynStorageTest from "../../../AsynStorageTest";
 
 export default class CustomKeyPage extends Component{
     constructor(props){
@@ -27,7 +26,7 @@ export default class CustomKeyPage extends Component{
     }
 
     componentDidMount(){
-        this.languageDao = new LanguageDao(FLAG_LANGUAGE.flag_key);
+        this.languageDao = new LanguageDao(this.props.flag);
         this.loadData();
     }
 
@@ -49,8 +48,10 @@ export default class CustomKeyPage extends Component{
             this.props.navigator.pop();
             return;
         }
-        for (let i=0,l=this.changeValues.length;i<l;i++) {
-            ArrayUtils.remove(this.state.dataArray, this.changeValues[i]);
+        if (this.isRemoveKey) {
+            for (let i=0,l=this.changeValues.length;i<l;i++) {
+                ArrayUtils.remove(this.state.dataArray, this.changeValues[i]);
+            }
         }
         this.languageDao.save(this.state.dataArray);
         this.props.navigator.pop();
@@ -131,6 +132,7 @@ export default class CustomKeyPage extends Component{
     render(){
         let  title = this.isRemoveKey ? '标签移除': '自定义标签';
         let  rightButtonTitle = this.isRemoveKey ? '移除': '保存';
+        title = this.props.flag===FLAG_LANGUAGE.flag_language?'自定义语言':title;
         let rightButton=<TouchableOpacity
             onPress={()=>this.onSave()}
         >
