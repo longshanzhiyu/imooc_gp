@@ -17,12 +17,13 @@ import PopularPage from './PopularPage';
 import AsynStorageTest from '../../AsynStorageTest';
 import MyPage from "./my/MyPage";
 import Toast, {DURATION} from 'react-native-easy-toast';
+import WebViewTest from '../../WebViewTest';
 
 
 export default class HomePage extends Component {
     constructor(props) {
         super(props);
-        // const ds = new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2});
+        //const ds = new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2});
         this.state={
             selectedTab:'tb_popular',
         }
@@ -69,7 +70,7 @@ export default class HomePage extends Component {
                         renderSelectedIcon={() => <Image style={[styles.image,{tintColor:'red'}]} source={require('../../res/images/ic_polular.png')} />}
                         // badgeText="1"
                         onPress={() => this.setState({ selectedTab: 'tb_favourite' })}>
-                        <View style={styles.page1}></View>
+                        <WebViewTest/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'tb_my'}
